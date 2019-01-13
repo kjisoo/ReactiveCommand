@@ -1,0 +1,32 @@
+PODS:
+  - ReactiveCommand (0.1.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+
+DEPENDENCIES:
+  - ReactiveCommand (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+
+EXTERNAL SOURCES:
+  ReactiveCommand:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ReactiveCommand: eef7cf4bdf34bc9fd8b330cba084ba7f6c290b5d
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+
+PODFILE CHECKSUM: 04a91eb5343dd6636c5fb51716c4572427049bd9
+
+COCOAPODS: 1.5.3

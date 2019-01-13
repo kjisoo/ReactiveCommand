@@ -1,0 +1,10 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'ReactiveCommand_Example' do
+  pod 'ReactiveCommand', :path => '../'
+
+  target 'ReactiveCommand_Tests' do
+    inherit! :search_paths
+  end
+end
