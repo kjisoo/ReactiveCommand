@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0077A07421EB28090052F717 /* ReactiveCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077A07321EB28090052F717 /* ReactiveCommandTests.swift */; };
 		449AD9C2219DC57C333A446C /* Pods_ReactiveCommand_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656F2D4FD3035C146773B613 /* Pods_ReactiveCommand_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0077A07321EB28090052F717 /* ReactiveCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveCommandTests.swift; sourceTree = "<group>"; };
 		0CBA2125E43A22ACA8346B9A /* Pods-ReactiveCommand_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCommand_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveCommand_Tests/Pods-ReactiveCommand_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		14569A7FFC7648B1DB35FCD6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		50E381F4A35CE10A0F58A61C /* ReactiveCommand.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ReactiveCommand.podspec; path = ../ReactiveCommand.podspec; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				0077A07321EB28090052F717 /* ReactiveCommandTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -214,7 +217,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -348,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0077A07421EB28090052F717 /* ReactiveCommandTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CBA2125E43A22ACA8346B9A /* Pods-ReactiveCommand_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -541,6 +546,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveCommand_Example.app/ReactiveCommand_Example";
@@ -551,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CD65B61FCAFAE80D40CAC02 /* Pods-ReactiveCommand_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
