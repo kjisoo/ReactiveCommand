@@ -41,12 +41,12 @@ public extension ReactiveCommand {
       lastInput = input
     }).disposed(by: self._disposeBag)
     
-    return ReactiveCommand<Void, Void>(execute: { [weak self] _ -> Void in
+    return ReactiveCommand<Void, Void>(execute: { _ -> Void in
       guard let lastInput = lastInput else {
         return
       }
       
-      self?.execute(input: lastInput)
+      self.execute(input: lastInput)
       return Void()
     }, canExecute: Observable.combineLatest(self.canExecute, target).map { $0.0 })
   }
