@@ -97,4 +97,40 @@ class ReactiveCommandTests: XCTestCase {
     // Assert
     self.waitForExpectations(timeout: 1, handler: nil)
   }
+  
+  func testWithNotEmittedTarget() {
+    // Arragne
+    let expectation = self.expectation(description: "Expect a not to be executed.")
+    let reactiveCommand = ReactiveCommand<Int, Void>(execute: { input -> Void in
+      expectation.fulfill()
+      return Void()
+    })
+    let voidReactiveCommand = reactiveCommand.with(target: .never())
+    expectation.isInverted = true
+    
+    // Act
+    voidReactiveCommand.execute(input: Void())
+    
+    // Assert
+    self.waitForExpectations(timeout: 1, handler: nil)
+  }
+  
+  func testWithTarget() {
+    // Arragne
+    let expectation = self.expectation(description: "Expect to be executed.")
+    var receivedInput = 0
+    let reactiveCommand = ReactiveCommand<Int, Void>(execute: { input -> Void in
+      receivedInput = input
+      expectation.fulfill()
+      return Void()
+    })
+    let voidReactiveCommand = reactiveCommand.with(target: .just(123))
+    
+    // Act
+    voidReactiveCommand.execute(input: Void())
+    
+    // Assert
+    self.waitForExpectations(timeout: 1, handler: nil)
+    XCTAssertEqual(receivedInput, 123)
+  }
 }
