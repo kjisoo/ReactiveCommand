@@ -133,4 +133,20 @@ class ReactiveCommandTests: XCTestCase {
     self.waitForExpectations(timeout: 1, handler: nil)
     XCTAssertEqual(receivedInput, 123)
   }
+  
+  func testExecuteAsObservable() {
+    // Arrange
+    let expectation = self.expectation(description: "Expect to be executed.")
+    let transform: () -> Observable<Int> = {
+      expectation.fulfill()
+      return .just(0)
+    }
+    let reactiveCommand = ReactiveCommand<Void, Int>(execute: transform)
+    
+    // Act
+    reactiveCommand.execute(input: Void())
+    
+    // Assert
+    self.waitForExpectations(timeout: 1, handler: nil)
+  }
 }

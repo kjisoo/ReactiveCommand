@@ -26,6 +26,14 @@ public class ReactiveCommand<Input, Output>: CommandExecuter<Input> {
     self._resultObservable.subscribe().disposed(by: _disposeBag)
   }
   
+  public init<O>(execute: @escaping (Input) -> O, canExecute: Observable<Bool> = .just(true)) where O: ObservableType, Output == O.E {
+    self._canExecute = canExecute
+    self._resultObservable = self._executingTrigger
+      .withLatestFrom(self._canExecute.filter { $0 }, resultSelector: { input, _ in input })
+      .flatMapLatest(execute)
+    self._resultObservable.subscribe().disposed(by: _disposeBag)
+  }
+  
   public override func execute(input: Input) {
     self._executingTrigger.onNext(input)
   }
