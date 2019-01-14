@@ -105,11 +105,11 @@ class ReactiveCommandTests: XCTestCase {
       expectation.fulfill()
       return Void()
     })
-    let voidReactiveCommand = reactiveCommand.with(target: .never())
+    let voidCommandExecuter = reactiveCommand.combined(with: .never())
     expectation.isInverted = true
     
     // Act
-    voidReactiveCommand.execute(input: Void())
+    voidCommandExecuter.execute(input: Void())
     
     // Assert
     self.waitForExpectations(timeout: 1, handler: nil)
@@ -124,10 +124,10 @@ class ReactiveCommandTests: XCTestCase {
       expectation.fulfill()
       return Void()
     })
-    let voidReactiveCommand = reactiveCommand.with(target: .just(123))
+    let voidCommandExecuter = reactiveCommand.combined(with: .just(123))
     
     // Act
-    voidReactiveCommand.execute(input: Void())
+    voidCommandExecuter.execute(input: Void())
     
     // Assert
     self.waitForExpectations(timeout: 1, handler: nil)
