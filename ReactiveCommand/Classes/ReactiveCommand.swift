@@ -48,6 +48,18 @@ extension ReactiveCommand: ObservableType {
 }
 
 public extension ReactiveCommand {
+  public static func combined(with executors: CommandExecuter<Input>...) -> ReactiveCommand<Input, Void> {
+    let execute: (Input) -> Void = { input -> Void in
+      executors.forEach { $0.execute(input: input) }
+      return Void()
+    }
+    let canExecute = Observable
+      .combineLatest(executors.map { $0.canExecute })
+      .map { !$0.contains(false) }
+    
+    return ReactiveCommand<Input, Void>(execute: execute, canExecute: canExecute)
+  }
+  
   public func combined(with target: Observable<Input>) -> CommandExecuter<Void> {
     var lastInput: Input?
     target.subscribe(onNext: { input in
