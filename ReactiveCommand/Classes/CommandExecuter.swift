@@ -20,7 +20,7 @@ public class CommandExecuter<Input>: CommandType {
     
   }
   
-  func asCommandExecuter() -> CommandExecuter<Input> {
+  public func asCommandExecuter() -> CommandExecuter<Input> {
     return self
   }
 }
