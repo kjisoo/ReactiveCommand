@@ -8,11 +8,14 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ReactiveCommand'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of ReactiveCommand.'
+  s.version          = '1.0.0'
+  s.summary          = 'Command available in MVVM.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+You can use the ReactiveCommand to distinguish commands and properties in a ViewModel.
+Command executes the closure statement or switches Observable.
+Command can be created by combining multiple commands.
+Command can be used by binding to Cocoa Component.
                        DESC
 
   s.homepage         = 'https://github.com/kjisoo/ReactiveCommand'
